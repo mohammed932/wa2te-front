@@ -1,0 +1,57 @@
+<footer id="innerPagesFooter">
+  <ul class="footer-nav" *ngIf="lang">
+    <a href="about.php">
+      <li>About</li>
+    </a>
+    <a href="advertise.php">
+      <li>Contact Us</li>
+    </a>
+    <a href="advertise.php">
+      <li>Advertise</li>
+    </a>
+    <a href="home.php">
+      <li>Listing</li>
+    </a>
+  </ul>
+
+  <ul class="footer-nav" *ngIf="!lang">
+    <a href="about.php">
+      <li>عنا</li>
+    </a>
+    <a href="advertise.php">
+      <li>تواصل معنا</li>
+    </a>
+    <a href="advertise.php">
+      <li>أعلن معنا</li>
+    </a>
+    <a href="home.php">
+      <li>إدراج</li>
+    </a>
+  </ul>
+
+  <span class="copyRights" *ngIf="lang">&copy; {{today | date:'yyy'}} Wa2te. All Rights Reserved.</span>
+  <span class="copyRights" *ngIf="!lang">&copy; {{today | date:'yyy'}} وقتي. جميع الحقوق محفوظة.</span>
+
+  <ul class="social-media" *ngIf="settings">
+    <a href="{{settings.twitter}}" target="_blank">
+      <li>
+        <i class="icon ion-social-twitter"></i>
+      </li>
+    </a>
+    <a href="{{settings.fb}}">
+      <li>
+        <i class="icon ion-social-facebook"></i>
+      </li>
+    </a>
+    <a href="{{settings.linkedin}}">
+      <li>
+        <i class="icon ion-social-linkedin"></i>
+      </li>
+    </a>
+    <a href="{{settings.instgram}}">
+      <li>
+        <i class="icon ion-social-instagram"></i>
+      </li>
+    </a>
+  </ul>
+</footer>

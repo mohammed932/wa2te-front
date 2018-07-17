@@ -1,0 +1,26 @@
+<ng-progress>
+</ng-progress>
+<ngx-spinner color = "#FFA500" ></ngx-spinner>
+<app-sidenav></app-sidenav>
+
+<section id="singleCategory">
+
+  <app-ad-slider [Sliders]="Subcat?.ads" [baseImage]="_WateserviceService.imageBaseUrl"></app-ad-slider>
+
+  <div class="categories-cards clearfix">
+      <app-contact-card 
+      *ngFor="let contact of Subcat?.contacts?.data | paginate: { itemsPerPage:Subcat?.contacts?.per_page, currentPage: page , totalItems:Subcat?.contacts?.total }; let i=first" 
+      [contact]="contact" 
+      [baseImage]="_WateserviceService.imageBaseUrl" ></app-contact-card>
+      <pagination-controls (pageChange)="p = $event" directionLinks="true" (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+  
+
+  
+  <div class="ads-panel-row">
+  </div>
+
+  <app-copy-rights></app-copy-rights>
+</section>
+
+<app-footer></app-footer>

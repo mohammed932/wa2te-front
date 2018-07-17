@@ -1,0 +1,37 @@
+<div class="slider" *ngIf="Sliders?.length > 0">
+  <div id="sponsersSlider" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li *ngFor="let ad  of Sliders; let first = first; let i = index; " data-target="#sponsersSlider" [attr.data-slide-to]="i"
+        [class.active]="first"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div *ngFor="let ad  of Sliders; let first = first; " class="item" [class.active]="first">
+        <div class="d-layer"></div>
+        <img src="{{baseImage}}{{ad.img}}" />
+        <div class="carousel-caption">
+          <h2 *ngIf="lang"> {{ad.title_en}} </h2>
+          <h2 *ngIf="!lang"> {{ad.title_ar}} </h2>
+
+          <p *ngIf="lang  ">{{ad.desc_en}}</p>
+          <p *ngIf="!lang">{{ad.desc_ar}}</p>
+        </div>
+      </div>
+
+    </div>
+    <a class="left carousel-control" href="#sponsersSlider" role="button" data-slide="prev">
+      <span class="icon ion-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#sponsersSlider" role="button" data-slide="next">
+      <span class="icon ion-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+<div class="slider" *ngIf="Sliders?.length == 0">
+    <img src="assets/img/1.jpg" />
+</div>

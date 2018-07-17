@@ -1,0 +1,57 @@
+<ng-progress></ng-progress>
+<app-sidenav></app-sidenav>
+
+
+<section id="result">
+
+  <!-- Search input
+  ===================================-->
+  <div class="search-field">
+
+    <form [formGroup]="searchForm" (ngSubmit)="search()" novalidate>
+      <input formControlName="name" [(ngModel)]="data.keyword" type="text" name="name" value="Starbuks" autofocus>
+      <button type="submit" class="search" [disabled]="!searchForm.valid">
+        <i class="icon ion-ios-search-strong"></i>
+      </button>
+      <div class="advanced-actions">
+
+        <select [(ngModel)]="data.governate" [ngModelOptions]="{standalone: true}">
+          <option [value]="0">All Cities</option>
+          <option [value]="gov.id" *ngFor="let gov of governments">
+            <span *ngIf="lang">{{gov.name_en}}</span>
+            <span *ngIf="!lang">{{gov.name_ar}}</span>
+          </option>
+        </select>
+
+        <select [(ngModel)]="data.cat" [ngModelOptions]="{standalone: true}">
+          <option [value]="0">All Categories</option>
+          <option [value]="cat.id" *ngFor="let cat of categories ">
+            <span *ngIf="lang">{{cat.name_en}}</span>
+            <span *ngIf="!lang">{{cat.name_ar}}</span>
+          </option>
+        </select>
+
+
+      </div>
+    </form>
+
+
+
+  </div>
+
+
+  <div class="clearfix"></div>
+  <!-- Categories Cards
+  ===================================-->
+  <div class="categories-cards clearfix">
+    <app-contact-card *ngFor="let contact of Contacts?.data | paginate: { itemsPerPage:Contacts?.per_page, currentPage: data.page , totalItems:Contacts?.total }; let i=first"
+      [contact]="contact" [baseImage]="_WateserviceService.imageBaseUrl"></app-contact-card>
+
+    <pagination-controls (pageChange)="p = $event" directionLinks="true" (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+
+  <!--/.categories-cards-->
+
+  <app-copy-rights></app-copy-rights>
+
+</section>

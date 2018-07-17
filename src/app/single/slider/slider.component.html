@@ -1,0 +1,36 @@
+<div class="slider" *ngIf="Sliders?.length > 0">
+  <!-- Map -->
+  <div class="map-warpper">
+    <span>
+      <i class="icon ion-ios-close-empty"></i>
+    </span>
+    <iframe [src]='getUrl()| safeUrl' width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+  <!-- Slider -->
+  <div id="singleSlider" class="carousel slide carousel-fade" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li *ngFor="let slider  of Sliders; let first = first; let i = index; " data-target="#sponsersSlider" [attr.data-slide-to]="i"
+        [class.active]="first"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div *ngFor="let slider of Sliders; let first = first;" class="item" [class.active]="first">
+        <div class="d-layer"></div>
+        <img src="{{baseImage}}{{slider.img}}" />
+        <img src="assets/img/1.jpg" />
+        <div class="carousel-caption">
+          <h2>{{slider.title_en}}</h2>
+          <p>{{slider.desc_en}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="slider" *ngIf="Sliders?.length == 0">
+  <img src="assets/img/1.jpg" />
+</div>

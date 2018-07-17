@@ -1,0 +1,58 @@
+<div class="single-detail" (click)="openModal(template)">
+  <span class="icon">
+    <i class="icon ion-clock"></i>
+  </span>
+  <span class="text">Working times</span>
+</div>
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">working hours</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="">
+      <div class="row">
+        <div class="col-lg-6">
+          <h5>saturday</h5>
+          <p>{{ checkTime(workingHours.sat_from) }} - {{ checkTime(workingHours.sat_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>sunday</h5>
+          <p>{{ checkTime(workingHours.sun_from) }} - {{ checkTime(workingHours.sun_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>monday</h5>
+          <p>{{ checkTime(workingHours.mon_from) }} - {{ checkTime(workingHours.mon_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>tuesday</h5>
+          <p>{{ checkTime(workingHours.tue_from) }} - {{ checkTime(workingHours.tue_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>wednesday</h5>
+          <p>{{ checkTime(workingHours.wed_from) }} - {{ checkTime(workingHours.wed_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>thursday</h5>
+          <p>{{ checkTime(workingHours.thu_from) }} - {{ checkTime(workingHours.thu_to) }}</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h5>friday</h5>
+          <p>{{ checkTime(workingHours.fri_from) }} - {{ checkTime(workingHours.fri_to) }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ng-template>

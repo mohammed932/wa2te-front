@@ -1,0 +1,28 @@
+<a routerLink="/single/{{contact.id}}">
+  <div class="single-card asGrid">
+    <div class="d-layer"></div>
+    <img *ngIf="!contact.gif_status && contact.square_img" src="{{baseImage}}{{contact.square_img}}" />
+    <img *ngIf="contact.gif_status && contact.gif_img" src="{{baseImage}}{{contact.gif_img}}" />
+    <img *ngIf="!contact.square_img" src="assets/img/1.jpg" />
+    <h3 *ngIf="lang">{{contact.title_en}}</h3>
+    <h3 *ngIf="!lang">{{contact.title_ar}}</h3>
+    <p *ngIf="lang">{{ truncate(contact.desc_en) }}</p>
+    <p *ngIf="!lang">{{ truncate(contact.desc_ar) }}</p>
+    <span class="catg-name">Cafes</span>
+  </div>
+</a>
+
+<!-- <div class="single-card asGrid">
+  <div class="d-layer"></div>
+  <img *ngIf="!contact.gif_status && contact.square_img" src="{{baseImage}}{{contact.square_img}}" />
+  <img *ngIf="contact.gif_status && contact.gif_img" src="{{baseImage}}{{contact.gif_img}}" />
+  <img *ngIf="!contact.square_img" src="assets/img/1.jpg" />
+  <h3 *ngIf="lang">{{contact.title_en}}</h3>
+  <h3 *ngIf="!lang">{{contact.title_ar}}</h3>
+
+  <p *ngIf="lang">{{contact.desc_en}}</p>
+  <p *ngIf="!lang">{{contact.desc_ar}}</p>
+
+  <span class="catg-name" *ngIf="lang">{{Subcat?.name_en}}</span>
+  <span class="catg-name" *ngIf="!lang">{{Subcat?.name_ar}}</span>
+</div> -->

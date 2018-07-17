@@ -1,0 +1,45 @@
+<footer>
+  <ul class="footer-nav">
+    <a href="" routerLink="/about">
+      <li *ngIf="lang">About</li>
+      <li *ngIf="!lang">عنا</li>
+    </a>
+    <a href="" routerLink="/contact">
+      <li *ngIf="lang">Contact Us</li>
+      <li *ngIf="!lang">تواصل معنا</li>
+    </a>
+    <a href="" routerLink="/advertise">
+      <li *ngIf="lang">Advertise</li>
+      <li *ngIf="!lang">أعلن معنا</li>
+    </a>
+    <a href="" *ngIf="lang" (click)="changeLanguage('ar')">عربي</a>
+    <a href="" *ngIf="!lang" (click)="changeLanguage('en')">English</a>
+  </ul>
+
+  <span class="copyRights" *ngIf="lang">&copy; {{today | date:'yyy'}} Wa2te. All Rights Reserved.</span>
+  <span class="copyRights" *ngIf="!lang"> جميع الحقوق محفوظة &copy;{{today | date:'yyy'}} وقتي</span>
+  <ul class="social-media" *ngIf="settings">
+
+    <a href="{{settings.twitter}}" target="_blank">
+      <li>
+        <i class="icon ion-social-twitter"></i>
+      </li>
+    </a>
+    <a href="{{settings.fb}}" target="_blank">
+      <li>
+        <i class="icon ion-social-facebook"></i>
+      </li>
+    </a>
+    <a href="{{settings.linkedin}}" target="_blank">
+      <li>
+        <i class="icon ion-social-linkedin"></i>
+      </li>
+    </a>
+    <a href="{{settings.instgram}}" target="_blank">
+      <li>
+        <i class="icon ion-social-instagram"></i>
+      </li>
+    </a>
+
+  </ul>
+</footer>

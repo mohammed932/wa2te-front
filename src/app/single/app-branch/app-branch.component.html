@@ -1,0 +1,43 @@
+<div class="branches">
+  <h3>Branches</h3>
+
+  <ul class="branches-cards">
+    <li class="single-branch" *ngFor=" let branch of Branches;  let i = index " >
+
+      <div class="image" [style.background-image]="'url('+baseImage+''+branch.img+')'"></div>
+      <div class="info">
+        <h2>{{ branch.title_en }} </h2>
+        <p>{{ branch.desc_en }}</p>
+        <span class="see-more">see more</span>
+        <div class="details-list">
+
+          <div class="single-detail" (click)="mapBranch(branch.lat,branch.lng)">
+            <span class="icon icon-map open-map">
+              <i class="icon ion-ios-location-outline"></i>
+            </span>
+            <span class="text">{{ branch.address }}</span>
+          </div>
+          <!--/-->
+
+          <div class="single-detail">
+            <span class="icon">
+              <i class="icon ion-ios-telephone"></i>
+            </span>
+            <span class="text">{{ branch.phone }}</span>
+          </div>
+          <!--/-->
+          <!-- <div class="single-detail" *ngIf="workTime">
+              <span class="icon">
+                <i class="icon ion-clock"></i>
+              </span>
+              <span class="text">{{workTime}}</span>
+            </div> -->
+          <!--/-->
+        </div>
+        <!--/.details-list-->
+      </div>
+      <!--/info-->
+    </li>
+  </ul>
+  
+</div>

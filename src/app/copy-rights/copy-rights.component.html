@@ -1,0 +1,39 @@
+<div class="ads">
+  <div class="ads-panel">
+    <img src="./assets/img/thumps/ad.png" alt="ADS" />
+  </div>
+  <div class="copyRights" *ngIf="lang">
+    &copy; {{today | date:'yyy'}} Wa2te
+    <br> All Rights Reserved.
+  </div>
+
+  <div class="copyRights" *ngIf="!lang">
+    &copy; {{today | date:'yyy'}} وقتي
+    <br> جميع الحقوق محفوظة
+  </div>
+
+  <div class="social">
+    <ul *ngIf="settings">
+      <a href="{{settings.twitter}}" target="_blank">
+        <li>
+          <i class="icon ion-social-twitter"></i>
+        </li>
+      </a>
+      <a href="{{settings.fb}}" target="_blank">
+        <li>
+          <i class="icon ion-social-facebook"></i>
+        </li>
+      </a>
+      <a href="{{settings.linkedin}}" target="_blank">
+        <li>
+          <i class="icon ion-social-linkedin"></i>
+        </li>
+      </a>
+      <a href="{{settings.instgram}}" target="_blank">
+        <li>
+          <i class="icon ion-social-instagram"></i>
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>

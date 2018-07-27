@@ -40,17 +40,17 @@
   </div>
 
 
-  <div class="clearfix"></div>
-  <!-- Categories Cards
-  ===================================-->
-  <div class="categories-cards clearfix">
-    <app-contact-card *ngFor="let contact of Contacts?.data | paginate: { itemsPerPage:Contacts?.per_page, currentPage: data.page , totalItems:Contacts?.total }; let i=first"
-      [contact]="contact" [baseImage]="_WateserviceService.imageBaseUrl"></app-contact-card>
+  <div class="result-cards clearfix">
+    <!-- Categories Cards
+    ===================================-->
+    <div class="categories-cards clearfix">
+      <app-contact-card *ngFor="let contact of Contacts?.data | paginate: { itemsPerPage:Contacts?.per_page, currentPage: data.page , totalItems:Contacts?.total }; let i=first"
+        [contact]="contact" [baseImage]="_WateserviceService.imageBaseUrl"></app-contact-card>
 
-    <pagination-controls (pageChange)="p = $event" directionLinks="true" (pageChange)="pageChanged($event)"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" directionLinks="true" (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+    <!--/.categories-cards-->
   </div>
-
-  <!--/.categories-cards-->
 
   <app-copy-rights></app-copy-rights>
 
